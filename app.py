@@ -75,5 +75,3 @@ def index():
 
 app.secret_key = 'your_secret_key'
 
-if __name__ == '__main__':
-    app.run(debug=True)
