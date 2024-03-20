@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="AI Powered News Article Summarizer">
+    <meta property="og:description" content="Unlock the Power of AI! Effortlessly Summarize News Articles with Sentiment Analysis and Reclaim Your Time.">
+    <meta property="og:url" content="https://aisummariser.oxlac.com/">
+    <meta property="og:type" content="web app">
+    <meta property="og:site_name" content="AI Summarizer">
+    <meta property="og:image" content="https://aisummariser.oxlac.com/static/logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon_io/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon_io/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon_io/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon_io/site.webmanifest') }}">
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>NewsByte</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dark-theme.css') }}" id="theme-style">
+</head>
+<body>
+    <div style="text-align: center;">
+        <img src="../static/NewsByte.svg" class="logo" alt="newsByte-logo">
+        <h2 class="sub-heading">AI Powered</h2>
+        <h1 class="heading">News Article Summarizer</h1>
+    </div>
+    
+    <!-- Theme Switch Button -->
+    <div class="theme-switch-wrapper">
+        <span>Change Theme</span>
+        <label class="theme-switch" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle" onchange="toggleTheme()" />
+            <div class="slider round"></div>
+        </label>
+    </div>
+    <div>
+          
+    <form method="POST" class="form">
+        <input type="text" name="url" id="url" required placeholder="Enter an news article URL">
+        <button type="submit">
+            <svg width="2em" height="3em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 pointer-events-none">
+                <path d="M19.593 13.812c-.196.287-.455.53-.758.710L8.594 20.648c-1.13.679-2.591.348-3.262-.735a2.226 2.226 0 01-.25-1.772c.522-1.883.81-3.766.866-5.65a23.312 23.312 0 00-.534-5.66c-.269-1.243.558-2.484 1.845-2.77a2.396 2.396 0 011.811.308l9.88 6.251c1.09.69 1.378 2.12.643 3.193zm-1.53-1.897L8.18 5.661a.79.79 0 00-.598-.101c-.43.095-.704.508-.615.921.38 1.75.573 3.5.577 5.249l3.36.02a.76.76 0 01.771.776.804.804 0 01-.815.765l-3.361-.02a25.37 25.37 0 01-.885 5.239.738.738 0 00.083.587c.223.361.709.47 1.085.245l10.243-6.126a.81.81 0 00.253-.237.749.749 0 00-.215-1.064z" fill="currentcolor" fill-rule="evenodd"></path>
+            </svg>
+        </button>
+    </form>
+
+    <div class="flash-message">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    
+
+    {% if title %}
+        <section class="content">
+            <div class="card">
+                <div class="offset-lg-1">
+                    <div class="lc-block my-5">
+                        <div editable="rich">
+                            <h2 class="rfs-25 fw-bold">{{ title }}</h2>
+                        </div>
+                    </div>
+                       
+  
+    <div class="container">
+        <div class="row pt-2 pb-4">
+            <div class="col-lg-1 d-none d-lg-flex align-items-center">
+                
+            </div><!-- /col -->
+            
+            <div class="col-lg-4 col-sm-6">
+                <div class="lc-block ratio ratio-1x1">
+                    <img style="object-fit:cover" class="img-fluid image-main" src="{{ top_image }}">
+                </div><!-- /lc-block -->
+
+            </div><!-- /col -->
+            <div class="col-lg-4 offset-lg-1">
+             
+                <div class="lc-block my-5 pt-2">
+                    <div class="main-wrapper">
+                        <div class="col-1">
+                            <!-- <p class="fw-bold">Authors:</p>
+                            <div class="author-list">
+                                {% for author in authors.split(', ') %}
+                                    <p class="lable-bg">{{ author }}</p>
+                                {% endfor %} -->
+                                <p class="fw-bold">Authors:</p>
+                        <ul class="author-list">
+                            {% for author in authors.split(', ') %}
+                                <li class="lable-bg my-1">{{ author }}</li>
+                            {% endfor %}
+                        </ul>
+                        <button id="readMoreBtn" onclick="toggleAuthors()">Read More</button>                    
+                        <p class="title-lable py-3">Publication Date: <span class="lable-bg-red">{{ publish_date }}</span></p>
+                            </div>
+                            <!-- <button id="readMoreBtn" onclick="toggleAuthors()">Read More</button>                    
+                            <div class="lc-block">
+                                <div editable="rich">
+                                    
+                                    <p class="title-lable py-3">Publication Date: <span class="lable-bg-red">{{ publish_date }}</span></p>
+                    
+                                </div> -->
+                                
+                                
+                        </div><!-- /lc-block -->
+                        </div>
+                 
+                
+            </div><!-- /col -->
+        </div>
+    </div> 
+            
+
+      
+ 
+
+
+
+                <p><span class="summary-tag fw-bold">Summary: </span></p>
+                <p class="lh-base tracking-wide">{{ summary }}.</p>
+                <p class="title-lable pt-3 fw-bold fs-5">Sentiment: <span class=" sentiment-bg fs-6 text-capitalize"> {{ sentiment }}</span></p>
+            </div>
+        </section>
+
+      
+
+        <!-- own  -->
+
+
+     
+
+
+    {% endif %}
+
+     
+
+
+
+
+
+
+
+    <!-- footer  -->
+<footer>
+    <p>Give it a ⭐ on <a href="https://github.com/MasumRaza1/NewsByte"><button type="button" class="btn btn-dark"><i class="fa-brands fa-github"></i></button></a></p>
+    <p class="footer-bottom">Created with ❤️ by <a href="https://github.com/MasumRaza1/">Masum Raza</a></p>
+  </footer>
+        
+
+    <script>
+        function toggleAuthors() {
+            var authors = document.querySelectorAll(".author-list li");
+            if (authors.length < 6) {
+                var btn = document.getElementById("readMoreBtn")
+                btn.style.display = 'none'
+            }
+        
+            // Toggle the display property of additional authors starting from the 6th author
+            for (var i = 5; i < authors.length; i++) {
+                authors[i].classList.toggle("hidden");
+            }
+            
+        
+            // Change the button text based on the current state
+            var readMoreBtn = document.getElementById("readMoreBtn");
+            if (authors[5].classList.contains("hidden")) {
+                readMoreBtn.textContent = "Read More";
+            } else {
+                readMoreBtn.textContent = "Read Less";
+            }
+        }
+        
+        function initializeAuthors() {
+            toggleAuthors(); // Initialize the state
+        }
+
+        // Correct the function to use the proper ID 'theme-toggle'
+        function toggleTheme() {
+            const themeStyle = document.getElementById('theme-style');
+            const themeToggle = document.getElementById('theme-toggle');
+
+            if (themeToggle.checked) {
+                themeStyle.href = "{{ url_for('static', filename='light-theme.css') }}";
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeStyle.href = "{{ url_for('static', filename='dark-theme.css') }}";
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // You do not need to add another event listener since you are using 'onchange' in the HTML
+        window.addEventListener("load", () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const savedTheme = localStorage.getItem('theme');
+
+            if (savedTheme === 'light') {
+                themeToggle.checked = true;
+            } else {
+                themeToggle.checked = false;
+            }
+            toggleTheme(); // This will set the correct theme when the page loads
+        });
+
+        window.addEventListener("load", initializeAuthors);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/928fde7a55.js" crossorigin="anonymous"></script>
+</body>
+</html>
