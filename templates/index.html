@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="AI Powered News Article Summarizer">
     <meta property="og:description" content="Unlock the Power of AI! Effortlessly Summarize News Articles with Sentiment Analysis and Reclaim Your Time.">
-    <meta property="og:url" content="https://aisummariser.oxlac.com/">
+    <meta property="og:url" content="https://avatars.githubusercontent.com/u/91459545?v=4">
     <meta property="og:type" content="web app">
     <meta property="og:site_name" content="AI Summarizer">
-    <meta property="og:image" content="https://aisummariser.oxlac.com/static/logo.jpeg">
+    <meta property="og:image" content="">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon_io/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon_io/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon_io/favicon-16x16.png') }}">
@@ -19,11 +19,27 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dark-theme.css') }}" id="theme-style">
 </head>
 <body>
-    <div style="text-align: center;">
-        <img src="../static/NewsByte.svg" class="logo" alt="newsByte-logo">
-        <h2 class="sub-heading">AI Powered</h2>
-        <h1 class="heading">News Article Summarizer</h1>
-    </div>
+    <!-- navbar  -->
+    <div class=" container">
+        <nav class="navbar mt-3">
+              <div class="navbar-brand" href="#">
+                <h3 class="fw-bold">NewsByte<span class="text-green fs-1">.</span></h3>
+              </div>
+          </nav>
+    <!-- hero  -->
+    <div class="container-fluid px-4 py-5 my-5 text-center">
+        <div class="lc-block mb-4 gradient">
+            <div editable="rich">
+              <h3 class="text-green fw-bold">AI Powered</h3>
+                <h2 class="display-2 fw-bold">News Article Summarizer<span class="text-green">.</span></h2>
+            </div>
+        </div>
+        <div class="lc-block col-lg-6 mx-auto mb-5">
+            <div editable="rich">
+    
+                <p class="lead fw-bold">Uncover the essence of news with Summize</p>
+            </div>
+        </div>
     
     <!-- Theme Switch Button -->
     <div class="theme-switch-wrapper">
@@ -35,14 +51,16 @@
     </div>
     <div>
           
-    <form method="POST" class="form">
-        <input type="text" name="url" id="url" required placeholder="Enter an news article URL">
-        <button type="submit">
-            <svg width="2em" height="3em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 pointer-events-none">
-                <path d="M19.593 13.812c-.196.287-.455.53-.758.710L8.594 20.648c-1.13.679-2.591.348-3.262-.735a2.226 2.226 0 01-.25-1.772c.522-1.883.81-3.766.866-5.65a23.312 23.312 0 00-.534-5.66c-.269-1.243.558-2.484 1.845-2.77a2.396 2.396 0 011.811.308l9.88 6.251c1.09.69 1.378 2.12.643 3.193zm-1.53-1.897L8.18 5.661a.79.79 0 00-.598-.101c-.43.095-.704.508-.615.921.38 1.75.573 3.5.577 5.249l3.36.02a.76.76 0 01.771.776.804.804 0 01-.815.765l-3.361-.02a25.37 25.37 0 01-.885 5.239.738.738 0 00.083.587c.223.361.709.47 1.085.245l10.243-6.126a.81.81 0 00.253-.237.749.749 0 00-.215-1.064z" fill="currentcolor" fill-rule="evenodd"></path>
-            </svg>
-        </button>
-    </form>
+        <form method="POST" class="form">
+            <input type="text" name="url" id="url" required placeholder="Enter an news article URL" class="shadow-sm rounded">
+            <button type="submit" class="shadow-sm rounded">
+                <svg width="2em" height="3em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 pointer-events-none">
+                    <path d="M19.593 13.812c-.196.287-.455.53-.758.710L8.594 20.648c-1.13.679-2.591.348-3.262-.735a2.226 2.226 0 01-.25-1.772c.522-1.883.81-3.766.866-5.65a23.312 23.312 0 00-.534-5.66c-.269-1.243.558-2.484 1.845-2.77a2.396 2.396 0 011.811.308l9.88 6.251c1.09.69 1.378 2.12.643 3.193zm-1.53-1.897L8.18 5.661a.79.79 0 00-.598-.101c-.43.095-.704.508-.615.921.38 1.75.573 3.5.577 5.249l3.36.02a.76.76 0 01.771.776.804.804 0 01-.815.765l-3.361-.02a25.37 25.37 0 01-.885 5.239.738.738 0 00.083.587c.223.361.709.47 1.085.245l10.243-6.126a.81.81 0 00.253-.237.749.749 0 00-.215-1.064z" fill="currentcolor" fill-rule="evenodd"></path>
+                </svg>
+            </button>
+        </form>
+        </div>
+        </div>
 
     <div class="flash-message">
         {% with messages = get_flashed_messages() %}
@@ -74,7 +92,7 @@
             
             <div class="col-lg-4 col-sm-6">
                 <div class="lc-block ratio ratio-1x1">
-                    <img style="object-fit:cover" class="img-fluid image-main" src="{{ top_image }}">
+                     <img style="object-fit: cover; width: 100%;" class="img-fluid image-main" src="{{ top_image }}">
                 </div><!-- /lc-block -->
 
             </div><!-- /col -->
@@ -83,11 +101,7 @@
                 <div class="lc-block my-5 pt-2">
                     <div class="main-wrapper">
                         <div class="col-1">
-                            <!-- <p class="fw-bold">Authors:</p>
-                            <div class="author-list">
-                                {% for author in authors.split(', ') %}
-                                    <p class="lable-bg">{{ author }}</p>
-                                {% endfor %} -->
+                            
                                 <p class="fw-bold">Authors:</p>
                         <ul class="author-list">
                             {% for author in authors.split(', ') %}
@@ -97,13 +111,6 @@
                         <button id="readMoreBtn" onclick="toggleAuthors()">Read More</button>                    
                         <p class="title-lable py-3">Publication Date: <span class="lable-bg-red">{{ publish_date }}</span></p>
                             </div>
-                            <!-- <button id="readMoreBtn" onclick="toggleAuthors()">Read More</button>                    
-                            <div class="lc-block">
-                                <div editable="rich">
-                                    
-                                    <p class="title-lable py-3">Publication Date: <span class="lable-bg-red">{{ publish_date }}</span></p>
-                    
-                                </div> -->
                                 
                                 
                         </div><!-- /lc-block -->
@@ -146,6 +153,12 @@
 
     <!-- footer  -->
 <footer>
+    <div class="d-flex justify-content-center gap-1">
+        <p class="fw-bold">Try</p>
+        <a href="https://concisify.vercel.app/"><img class="rounded" src="../static/icon1.svg" height="20px"></a>
+    </div>
+    
+   
     <p>Give it a ⭐ on <a href="https://github.com/MasumRaza1/NewsByte"><button type="button" class="btn btn-dark"><i class="fa-brands fa-github"></i></button></a></p>
     <p class="footer-bottom">Created with ❤️ by <a href="https://github.com/MasumRaza1/">Masum Raza</a></p>
   </footer>

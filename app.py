@@ -74,4 +74,3 @@ def index():
     return render_template('index.html')
 
 app.secret_key = 'your_secret_key'
-

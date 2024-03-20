@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+
 body {
     background-color: #f8f9fa; /* Light grey background */
     color: #212529; /* Dark grey text */
-    font-family: 'Poppins', sans-serif;
+    font-family: "poppins", sans-serif;
     scroll-behavior: smooth;
     position: relative;
     min-height: calc(100vh - 90px);
+}
+.text-green{
+    color: #23d3d3;
 }
 
 .heading {
