@@ -1,22 +1,16 @@
-# NewsByte
+# NewsByte : AI-Powered News Summarizer
 
-![NewsByte Logo](https://raw.githubusercontent.com/MasumRaza1/NewsByte/main/NewsByte-logo.png)
-
-Welcome to **NewsByte**, an advanced AI-driven news summarization tool aimed at revolutionizing the way users interact with news articles.
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Future Plans](#future-plans)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/MasumRaza1/NewsByte/main/NewsByte-logo.png" alt="NewsByte Logo" width="200" height="200">
+    <br />
+     <a href="https://newsbyte.onrender.com/">Visit the Website »</a>
+    <br />
+    Welcome to **NewsByte**, an advanced AI-powered news summarization tool aimed at revolutionizing the way users interact with news articles.
+</div>
 
 ## Introduction
+
+![NewsByte Home](https://github.com/MasumRaza1/NewsByte/raw/main/NewsByte-Home.jpg)
 
 In today's fast-paced world, staying informed is crucial, yet time-consuming. **NewsByte** addresses this challenge by providing automated summarization of news articles, allowing users to quickly grasp the key points without having to read lengthy texts. 
 
@@ -49,24 +43,24 @@ Developed using Python and Flask, NewsByte aggregates news from diverse sources 
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/yourusername/NewsByte.git
+    git clone https://github.com/MasumRaza1/NewsByte.git
     cd NewsByte
     ```
 
-2. **Create a Virtual Environment**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
-
-3. **Install Dependencies**
+2. **Install Dependencies**
     ```bash
     pip install -r requirements.txt
+    ```
+    
+3. **Add this code `app.py` file below code before run**
+    ```bash
+   if __name__ == '__main__':
+    app.run(debug=True)
     ```
 
 4. **Run the Application**
     ```bash
-    flask run
+     python app.py
     ```
 
     The application will be accessible at `http://127.0.0.1:5000`.
@@ -83,18 +77,16 @@ Developed using Python and Flask, NewsByte aggregates news from diverse sources 
 - **Mobile App Version**: Develop a mobile application for on-the-go access.
 - **Enhanced NLP**: Continuous improvement of summarization algorithms for better accuracy.
 
-## Contributing
+## Screenshot
 
-We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more details.
+### NewsByte-Summarize
 
-## License
+![NewsByte Summarize](https://github.com/MasumRaza1/NewsByte/raw/main/NewsByte-Summarize.jpg)
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### NewsByte-Demo
 
-## Contact
+![NewsByte Final](https://github.com/MasumRaza1/NewsByte/raw/main/NewsByte-Final.png)
 
-For any inquiries or feedback, please reach out to us at [your-email@example.com](mailto:your-email@example.com).
 
----
 
 Thank you for using NewsByte! Stay informed, effortlessly.
